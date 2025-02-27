@@ -7,7 +7,7 @@ metadata:
     color: ${COLOR}
     version: "${VERSION}"
   annotations:
-    kubernetes.io/description: "ARF simple nodejs application deployment"
+    kubernetes.io/description: "Simple nodejs application deployment"
     prometheus.io/scrape: "true"
     prometheus.io/port: "3000"
     prometheus.io/path: "/metrics"

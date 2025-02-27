@@ -1,4 +1,4 @@
-# ARF Case Study Project
+# Case Study Project
 
 This repository contains a Jenkins CI/CD pipeline for a simple Express.js application with containerization, blue/green deployment strategy with canary testing with monitoring.
 
