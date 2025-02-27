@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: simple-nodejs-app-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: simple-nodejs-app
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    # Allow traffic from the namespace
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+    # Allow traffic from pods with the "access: simple-nodejs-app" label
+    - podSelector:
+        matchLabels:
+          access: simple-nodejs-app
+    ports:
+    - protocol: TCP
+      port: 3000
+  egress:
+  # Allow DNS resolution
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: kube-system
+    ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53
+  # Allow outbound monitoring traffic
+  - to:
+    - podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 9090
+  # Allow outbound to logging system
+  - to:
+    - podSelector:
+        matchLabels:
+          app: logging
+    ports:
+    - protocol: TCP
+      port: 24224

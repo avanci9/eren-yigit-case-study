@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-nodejs-app
+  labels:
+    app: simple-nodejs-app
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: simple-nodejs-app
+    color: "${ACTIVE_COLOR}"

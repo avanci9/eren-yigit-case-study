@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: simple-nodejs-app-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: simple-nodejs-app

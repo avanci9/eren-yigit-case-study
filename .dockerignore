@@ -1,0 +1,52 @@
+# Exclude version control files
+.git
+.gitignore
+.gitattributes
+
+# Exclude node modules and dependency directories
+node_modules
+npm-debug.log
+
+# Exclude test files
+__tests__
+*.test.js
+test
+tests
+coverage
+
+# Exclude CI/CD files
+.github
+.gitlab-ci.yml
+Jenkinsfile
+jenkins
+
+# Exclude documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs
+
+# Exclude development configs
+.eslintrc
+.eslintignore
+.prettierrc
+.editorconfig
+
+# Exclude Kubernetes manifests
+kubernetes
+
+# Exclude IDE specific files
+.idea
+.vscode
+*.sublime-*
+*.swp
+.DS_Store
+
+# Exclude Docker related files (except Dockerfile)
+docker-compose*.yml
+.dockerignore
+
+# Exclude any local env files
+.env
+.env.*
+*.env
